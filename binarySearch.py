@@ -16,4 +16,22 @@ def search(list, item):
     return None
 
 
+def searchR(list, item, counter):
+    if list == []:
+        return None
+    elif len(list) == 1:
+        if list[0] ==  item:
+            return 0
+        else:
+            return None
+    else:
+        if list[counter] == item:
+            return counter
+        else:
+            counter = counter - 1
+            return searchR(list, item, counter)
+
+
+
+
         
