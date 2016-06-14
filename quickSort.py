@@ -1,23 +1,22 @@
-numbers = [6,3,18,9,5,1,2,7,4]
-
-def quickSort(list):
-    if len(list) < 2:
-        return list
+def quickSort(array):
+    if len(array) < 2:
+        return array
     else:
-        pivot = list[0]
-        less = []
-        greater = []
+        mid = (len(array)/2)
+        pivot = array[mid]
+        lower = []
+        higher = []
 
-        less = [i for i in list[1:] if i <= pivot]
-        greater = [i for i in list[1:] if i > pivot]
-
-        return quickSort(less) + [pivot] + quickSort(greater)
-
-
-
-
-
-
-print quickSort(numbers)
-
+        for i in range(0, len(array)):
+            if i != mid:
+                if array[i] > pivot:
+                    higher.append(array[i])
+                else:
+                    lower.append(array[i])
         
+        return quickSort(lower) + [pivot] + quickSort(higher)
+
+
+
+
+
